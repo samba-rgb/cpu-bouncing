@@ -460,16 +460,16 @@ That is where the real story begins.
 
 Benchmark source:
 
-- [benchmark.cpp](/Users/samba/Desktop/blogs/cpu-bouncing/benchmark.cpp:1)
+- [benchmark.cpp](https://github.com/samba-rgb/cpu-bouncing/blob/main/benchmark.cpp)
 
 Results:
 
-- [benchmark_results.csv](/Users/samba/Desktop/blogs/cpu-bouncing/results/benchmark_results.csv)
-- [summary.md](/Users/samba/Desktop/blogs/cpu-bouncing/results/summary.md)
-- [tooling-notes.md](/Users/samba/Desktop/blogs/cpu-bouncing/results/tooling-notes.md)
+- [benchmark_results.csv](https://github.com/samba-rgb/cpu-bouncing/blob/main/results/benchmark_results.csv)
+- [summary.md](https://github.com/samba-rgb/cpu-bouncing/blob/main/results/summary.md)
+- [tooling-notes.md](https://github.com/samba-rgb/cpu-bouncing/blob/main/results/tooling-notes.md)
 
 Images:
 
-- [MESI overview PNG](/Users/samba/Desktop/blogs/cpu-bouncing/images/mesi-overview.png)
-- [Shared atomic MESI PNG](/Users/samba/Desktop/blogs/cpu-bouncing/images/mesi-write-flow.png)
-- [False sharing PNG](/Users/samba/Desktop/blogs/cpu-bouncing/images/false-sharing-layout.png)
+- [MESI overview PNG](https://github.com/samba-rgb/cpu-bouncing/blob/main/images/mesi-overview.png)
+- [Shared atomic MESI PNG](https://github.com/samba-rgb/cpu-bouncing/blob/main/images/mesi-write-flow.png)
+- [False sharing PNG](https://github.com/samba-rgb/cpu-bouncing/blob/main/images/false-sharing-layout.png)
