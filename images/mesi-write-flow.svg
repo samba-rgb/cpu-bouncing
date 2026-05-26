@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080">
+  <rect width="100%" height="100%" fill="#fffdf8"/>
+  <text x="90" y="90" font-size="42" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#1f2937">Shared atomic write under MESI</text>
+  <text x="90" y="130" font-size="24" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#4b5563">Same counter, two cores, ownership keeps moving.</text>
+
+  <rect x="100" y="220" width="360" height="260" rx="22" fill="#dbeafe" stroke="#1d4ed8" stroke-width="4"/>
+  <text x="135" y="280" font-size="36" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#1d4ed8">Core 0</text>
+  <text x="135" y="340" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">Thread A updates counter.</text>
+  <text x="135" y="395" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">Line X state = M</text>
+
+  <rect x="620" y="220" width="360" height="260" rx="22" fill="#f3f4f6" stroke="#6b7280" stroke-width="4"/>
+  <text x="700" y="280" font-size="36" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">Coherence fabric</text>
+  <text x="675" y="355" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">Moves ownership</text>
+  <text x="675" y="400" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">between cores</text>
+
+  <rect x="1140" y="220" width="360" height="260" rx="22" fill="#fee2e2" stroke="#e11d48" stroke-width="4"/>
+  <text x="1175" y="280" font-size="36" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#e11d48">Core 1</text>
+  <text x="1175" y="340" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">Thread B wants counter.</text>
+  <text x="1175" y="395" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#374151">Line X state = I</text>
+
+  <line x1="460" y1="350" x2="620" y2="350" stroke="#1d4ed8" stroke-width="6"/>
+  <polygon points="620,350 600,340 600,360" fill="#1d4ed8"/>
+  <text x="470" y="325" font-size="22" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#1d4ed8">Core 0 owns X</text>
+
+  <line x1="1140" y1="410" x2="980" y2="410" stroke="#e11d48" stroke-width="6"/>
+  <polygon points="980,410 1000,400 1000,420" fill="#e11d48"/>
+  <text x="915" y="455" font-size="22" text-anchor="end" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#e11d48">Core 1 asks to write</text>
+
+  <line x1="980" y1="455" x2="1140" y2="455" stroke="#0f766e" stroke-width="6"/>
+  <polygon points="1140,455 1120,445 1120,465" fill="#0f766e"/>
+  <text x="915" y="500" font-size="22" text-anchor="end" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#0f766e">Ownership moves</text>
+
+  <rect x="140" y="620" width="1320" height="280" rx="24" fill="#111827"/>
+  <text x="190" y="690" font-size="34" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#ffffff">What happens</text>
+  <text x="190" y="755" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#d1d5db">1. Core 0 already owns line X and writes the counter.</text>
+  <text x="190" y="805" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#d1d5db">2. Core 1 also wants to write that same counter.</text>
+  <text x="190" y="855" font-size="28" font-family="'Comic Sans MS', 'Trebuchet MS', sans-serif" fill="#d1d5db">3. Hardware transfers ownership from Core 0 to Core 1.</text>
+</svg>

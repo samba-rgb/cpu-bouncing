@@ -1,0 +1,126 @@
+Analysis of sampling benchmark (pid 22468) every 10 milliseconds
+Process:         benchmark [22468]
+Path:            /Users/USER/Desktop/*/benchmark
+Load Address:    0x102b08000
+Identifier:      benchmark
+Version:         0
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  codex [2650]
+Target Type:     live task
+
+Date/Time:       2026-05-26 23:35:20.784 +0530
+Launch Time:     2026-05-26 23:35:14.826 +0530
+OS Version:      macOS 26.4.1 (25E253)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         1088K
+Physical footprint (peak):  1104K
+Idle exit:                  untracked
+----
+
+Call graph:
+    272 Thread_2922825   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 272 start  (in dyld) + 6992  [0x1838afda4]
+    +   272 main  (in benchmark) + 2044  [0x102b08ce4]
+    +     272 std::thread::join()  (in libc++.1.dylib) + 36  [0x183ba2e24]
+    +       272 _pthread_join  (in libsystem_pthread.dylib) + 616  [0x183c6e114]
+    +         272 __ulock_wait  (in libsystem_kernel.dylib) + 8  [0x183c29af8]
+    272 Thread_2922841
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,80  [0x102b0a984,0x102b0a98c]
+    272 Thread_2922842
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,64  [0x102b0a984,0x102b0a97c]
+    272 Thread_2922843
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,80  [0x102b0a984,0x102b0a98c]
+    272 Thread_2922844
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,80  [0x102b0a984,0x102b0a98c]
+    272 Thread_2922845
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,80,...  [0x102b0a984,0x102b0a98c,...]
+    272 Thread_2922846
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,64,...  [0x102b0a984,0x102b0a97c,...]
+    272 Thread_2922847
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,64,...  [0x102b0a984,0x102b0a97c,...]
+    272 Thread_2922848
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,64,...  [0x102b0a984,0x102b0a97c,...]
+    272 Thread_2922849
+    + 272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+    +   272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+    +     272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,64,...  [0x102b0a984,0x102b0a97c,...]
+    272 Thread_2922850
+      272 thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+        272 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+          272 std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 72,64,...  [0x102b0a984,0x102b0a97c,...]
+
+Total number in stack (recursive counted multiple, when >=5):
+        10       _pthread_start  (in libsystem_pthread.dylib) + 136  [0x183c6bc58]
+        10       std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark) + 0  [0x102b0a93c]
+        10       thread_start  (in libsystem_pthread.dylib) + 8  [0x183c66c1c]
+
+Sort by top of stack, same collapsed (when >= 5):
+        std::__thread_proxy[abi:nqe210106]<std::tuple<std::unique_ptr<std::__thread_struct>, (anonymous namespace)::bench_shared_atomic(unsigned long, unsigned long long)::$_0::operator()() const::'lambda'()>>(void*)  (in benchmark)        2720
+        __ulock_wait  (in libsystem_kernel.dylib)        272
+
+Binary Images:
+       0x102b08000 -        0x102b0b3d7 +benchmark (0) <0EDB2FBE-4DC9-329A-A6A9-6DB5388E5FD2> /Users/*/Desktop/*/benchmark
+       0x183808000 -        0x18385ab4b  libobjc.A.dylib (951.7) <2E858E25-1FF6-3DA6-84F6-911630620512> /usr/lib/libobjc.A.dylib
+       0x18385b000 -        0x18388fb34  libdyld.dylib (1376.6) <2C3C5F75-3686-39A1-9202-BD4D2133379D> /usr/lib/system/libdyld.dylib
+       0x183890000 -        0x183935ec7  dyld (1.0.0 - 1376.6) <9F682DCF-340C-3BFA-BCDD-DD702F30313E> /usr/lib/dyld
+       0x183936000 -        0x183939228  libsystem_blocks.dylib (96) <2EA73169-CF76-3DD1-9869-F23C8B338022> /usr/lib/system/libsystem_blocks.dylib
+       0x18393a000 -        0x18398e51f  libxpc.dylib (3102.100.102) <618039C8-9965-3782-A7D2-90FD4C3DD66F> /usr/lib/system/libxpc.dylib
+       0x18398f000 -        0x1839af9bf  libsystem_trace.dylib (1861.100.19) <08629650-54FC-3AA6-910E-EACA563804D0> /usr/lib/system/libsystem_trace.dylib
+       0x1839b0000 -        0x183a5ddaf  libcorecrypto.dylib (1922.101.2) <D1EC203E-9B2E-391B-8DE3-7C58F0589437> /usr/lib/system/libcorecrypto.dylib
+       0x183a5e000 -        0x183aae1d7  libsystem_malloc.dylib (812.100.31) <2AD21BE3-FFDB-31D5-A3D7-2F7F672D6E92> /usr/lib/system/libsystem_malloc.dylib
+       0x183aaf000 -        0x183af623f  libdispatch.dylib (1542.100.32) <E17AA23F-DB2A-3302-B14C-F6B08C540FCF> /usr/lib/system/libdispatch.dylib
+       0x183af7000 -        0x183af9ffb  libsystem_featureflags.dylib (103) <0DE01F76-4B36-35A2-98F9-43DD147EDD95> /usr/lib/system/libsystem_featureflags.dylib
+       0x183afa000 -        0x183b7aef7  libsystem_c.dylib (1752.100.10) <66EBD321-6899-3863-BA24-5CFC3076A0CB> /usr/lib/system/libsystem_c.dylib
+       0x183b7b000 -        0x183c0bae7  libc++.1.dylib (2100.43) <1E9541EC-C564-38CB-BED6-46F708E8D863> /usr/lib/libc++.1.dylib
+       0x183c0c000 -        0x183c2675f  libc++abi.dylib (2100.43) <E8D325ED-3B97-325E-B494-B1B0FF93D133> /usr/lib/libc++abi.dylib
+       0x183c27000 -        0x183c6428f  libsystem_kernel.dylib (12377.101.15) <51565B39-F595-3E96-A217-FEF29815057A> /usr/lib/system/libsystem_kernel.dylib
+       0x183c65000 -        0x183c71b3b  libsystem_pthread.dylib (539.100.4) <E7A73008-0C09-31E3-9DD9-0C61652F0E85> /usr/lib/system/libsystem_pthread.dylib
+       0x183c72000 -        0x183c7a8f3  libsystem_platform.dylib (375.100.10) <D93EC420-F465-3A3A-916D-A04AF9B023EB> /usr/lib/system/libsystem_platform.dylib
+       0x183c7b000 -        0x183caa6eb  libsystem_info.dylib (600) <201FD67C-3DF6-3788-B132-A69CAA2AA3D7> /usr/lib/system/libsystem_info.dylib
+       0x187c40000 -        0x187c49e5f  libsystem_darwin.dylib (1752.100.10) <D5BA0CAB-F283-3620-AAA9-1EEB718E1BA8> /usr/lib/system/libsystem_darwin.dylib
+       0x1880ab000 -        0x1880bcf5b  libsystem_notify.dylib (348.100.7) <9F46F30B-B7C0-3DD7-AC38-57B78C7971FF> /usr/lib/system/libsystem_notify.dylib
+       0x18a375000 -        0x18a38ff5b  libsystem_networkextension.dylib (2226.101.1) <85169C7B-48DD-3542-AD38-F1B88EA2A95A> /usr/lib/system/libsystem_networkextension.dylib
+       0x18a412000 -        0x18a429fdf  libsystem_asl.dylib (406) <6427D987-7938-3278-8C14-10FB9C06BBD5> /usr/lib/system/libsystem_asl.dylib
+       0x18bfcd000 -        0x18bfd5387  libsystem_symptoms.dylib (2169.100.30) <28B6E34E-9C7D-3437-A3F1-A3C979DE579A> /usr/lib/system/libsystem_symptoms.dylib
+       0x190268000 -        0x1902a025f  libsystem_containermanager.dylib (725.100.37) <14750F95-BB3A-3654-8610-A05A454643A8> /usr/lib/system/libsystem_containermanager.dylib
+       0x191678000 -        0x19167c5d7  libsystem_configuration.dylib (1405.100.8) <634F597D-F8BD-3C00-B967-86047FC15D14> /usr/lib/system/libsystem_configuration.dylib
+       0x19167d000 -        0x1916838cf  libsystem_sandbox.dylib (2680.100.174) <AF76231D-EADC-3399-9414-6AD90FB4EA89> /usr/lib/system/libsystem_sandbox.dylib
+       0x192cc3000 -        0x192cc61fb  libquarantine.dylib (196.100.8) <268FEB6E-A237-3050-BFFF-AE3A66B7EAD4> /usr/lib/system/libquarantine.dylib
+       0x193462000 -        0x193468d03  libsystem_coreservices.dylib (191.4.5) <7129349D-04F9-3C3C-BF37-3082C1468654> /usr/lib/system/libsystem_coreservices.dylib
+       0x1939e7000 -        0x193a24a77  libsystem_m.dylib (3312.100.1) <83B173CD-7F32-3901-8E67-C0B2676BE015> /usr/lib/system/libsystem_m.dylib
+       0x193a26000 -        0x193a29527  libmacho.dylib (1376.6) <9729ECEA-0A08-32E3-8BDB-B42FC15FF258> /usr/lib/system/libmacho.dylib
+       0x193a43000 -        0x193a503a7  libcommonCrypto.dylib (600035) <710EC5FA-F77C-3646-A9E3-C037C42E1539> /usr/lib/system/libcommonCrypto.dylib
+       0x193a51000 -        0x193a5aca3  libunwind.dylib (2100.2) <FB0518B9-DF0F-3A03-A74B-AF1B21C26F8B> /usr/lib/system/libunwind.dylib
+       0x193a63000 -        0x193a6d7ff  libcopyfile.dylib (240) <0B7FF027-5579-3CBF-A12B-68A4FD36641C> /usr/lib/system/libcopyfile.dylib
+       0x193a6e000 -        0x193a71987  libcompiler_rt.dylib (103.3) <65E29E6E-7042-3F73-A1D2-F2C4EBCD7524> /usr/lib/system/libcompiler_rt.dylib
+       0x193a72000 -        0x193a7678b  libsystem_collections.dylib (1752.100.10) <B81193DE-3BEC-3340-86D0-DB7F3683D135> /usr/lib/system/libsystem_collections.dylib
+       0x193a77000 -        0x193a7a4cf  libsystem_secinit.dylib (168.100.7) <A6B77B36-195D-33F8-8058-FE0B5BFA9D37> /usr/lib/system/libsystem_secinit.dylib
+       0x193a7b000 -        0x193a7dbf7  libremovefile.dylib (85.100.6) <BD89B1A3-0D06-3881-B5E1-EFC6CFBDFCC1> /usr/lib/system/libremovefile.dylib
+       0x193a7e000 -        0x193a7ef27  libkeymgr.dylib (31) <DE8F8219-0072-35C2-8932-C065491ED15D> /usr/lib/system/libkeymgr.dylib
+       0x193a7f000 -        0x193a87e3f  libsystem_dnssd.dylib (2881.100.56.0.1) <DEC8BDD2-366C-3BF9-A123-35744DB06354> /usr/lib/system/libsystem_dnssd.dylib
+       0x193a88000 -        0x193a8d09b  libcache.dylib (95) <4D6833A3-C910-3A76-AA8A-303F698B36BF> /usr/lib/system/libcache.dylib
+       0x193a8e000 -        0x193a8fce3  libSystem.B.dylib (1356) <E05F5341-06B7-365E-8014-E9CD64C352FE> /usr/lib/libSystem.B.dylib
+       0x286371000 -        0x286378349  libRosetta.dylib (367.5) <2FC1EF06-04C4-35FC-8DC3-BEA1E9FBD63F> /usr/lib/libRosetta.dylib
+       0x28804e000 -        0x288051a4b  libsystem_darwindirectory.dylib (122) <CCAA2170-32DD-34BD-A927-32DF30893969> /usr/lib/system/libsystem_darwindirectory.dylib
+       0x288052000 -        0x28805b5a7  libsystem_eligibility.dylib (319.101.1) <2D19994A-87BB-34B8-A343-CB8DD47FF110> /usr/lib/system/libsystem_eligibility.dylib
+       0x28805c000 -        0x2880638db  libsystem_sanitizers.dylib (26) <FCB93D2F-4437-3089-A43F-A19BC23DD65B> /usr/lib/system/libsystem_sanitizers.dylib
+       0x288064000 -        0x288064bb7  libsystem_trial.dylib (474.2.18) <5BB81430-4E33-3160-94D2-1FFB2B614DB2> /usr/lib/system/libsystem_trial.dylib
