@@ -111,6 +111,10 @@ This case is beautiful because it changes very little at the code level, but it 
 
 If the padded version suddenly gets much faster, then the real problem was not the arithmetic. It was the memory layout.
 
+![Cache line bouncing sequence](/Users/samba/Desktop/blogs/cpu-bouncing/images/cache-bounce-sequence.svg)
+
+If you want the whole post in one image, that is basically it: one tiny line of memory, many cores, and far too much ownership handoff.
+
 ## What the machine said
 
 I ran the benchmark on a local Apple Silicon machine with:
@@ -140,7 +144,11 @@ That is the hardware saying, very clearly:
 
 ![Throughput chart](/Users/samba/Desktop/blogs/cpu-bouncing/results/throughput.svg)
 
+The throughput chart tells the emotional version of the story: the "good" designs keep climbing, while the contended ones hit the ceiling and start dragging the whole machine sideways.
+
 ![Latency chart](/Users/samba/Desktop/blogs/cpu-bouncing/results/latency.svg)
+
+The latency chart tells the mechanical version: every extra handoff has a price, and once enough threads join the fight, the price compounds.
 
 The shape of the charts matters more than any single number.
 
@@ -203,7 +211,22 @@ The classic teaching model is MESI:
 
 ![MESI overview](/Users/samba/Desktop/blogs/cpu-bouncing/images/mesi-overview.png)
 
-You do not need to memorize every state transition to understand the main point.
+Here is the friendly version of those states:
+
+- `Modified`: one core has changed the cache line, and memory has not been updated yet
+- `Exclusive`: one core has the only clean copy, so it can usually upgrade to a write cheaply
+- `Shared`: multiple cores may read the line, but nobody may just write it in place
+- `Invalid`: the local copy is no longer trustworthy and must not be used
+
+You do not need to memorize every transition arrow to understand the main point.
+
+What you really need to notice is that reads and writes live very different lives.
+
+A read can often happen from a shared copy.
+
+A write is more demanding. A write wants control.
+
+That is why `Shared` is comfortable for read-heavy data, but painful for write-heavy data. The moment a core wants to modify a shared line, the protocol has to kick the other copies out of the way.
 
 The one sentence that matters most is this:
 
@@ -237,6 +260,18 @@ At the hardware level, this is closer to a handoff:
 That is the hidden work.
 
 ![Shared atomic under MESI](/Users/samba/Desktop/blogs/cpu-bouncing/images/mesi-write-flow.png)
+
+This is where the MESI states stop being theory and start becoming time on a stopwatch.
+
+One likely mental model looks like this:
+
+- Core 0 had the line in `Modified` or `Exclusive`
+- Core 1 wants to write, so Core 0 can no longer keep that version as-is
+- Core 0 gets downgraded or invalidated
+- Core 1 receives the line and now becomes the owner
+- after Core 1 writes, it may now hold the line in `Modified`
+
+Then the whole dance repeats in the opposite direction.
 
 And if the next increment happens back on Core 0, the line moves back again.
 
@@ -300,6 +335,8 @@ The sharing is not in the logic.
 The sharing is in the layout.
 
 ![False sharing vs padded counters](/Users/samba/Desktop/blogs/cpu-bouncing/images/false-sharing-layout.png)
+
+That is why false sharing is so frustrating to debug. You can read the code and feel proud that every thread has its own variable, while the CPU quietly sees one crowded apartment of hot writes.
 
 ## The most convincing result in the whole experiment
 
